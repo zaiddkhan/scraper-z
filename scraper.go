@@ -15,7 +15,7 @@ type Product struct {
 }
 
 var c = colly.NewCollector(
-		colly.AllowedDomains("www.scrapingcourse.com"),
+		colly.AllowedDomains("www.99acres.com"),
 )
 
 func main() {
@@ -25,18 +25,18 @@ func main() {
 
 	c.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 	
-	err := c.SetProxy("http://35.185.196.38:3128")
+//	err := c.SetProxy("http://158.178.246.35:80")
 	
-	if err != nil {
-		log.Fatal(err)
-	}
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 	// c.OnRequest(func(r *colly.Request) {
 	// 	fmt.Println("Visiting", r.URL)
 	// });
 	
-	// c.OnError(func(_ *colly.Response, err error){
-	// 	fmt.Println("Something went wrong",err)
-	// });
+	c.OnError(func(_ *colly.Response, err error){
+		fmt.Println("Something went wrong",err)
+	});
 	
 	// c.OnResponse(func(r *colly.Response){
 	// 	fmt.Println("Page Visited",r.Request.URL)
@@ -89,7 +89,7 @@ func main() {
         writer.Flush()
     })
     
-   	 c.Visit("https://www.scrapingcourse.com/ecommerce")
+   	 c.Visit("https://www.99acres.com/godrej-reserve-kandivali-east-mumbai-andheri-dahisar-npxid-r422558?advertiserIds=69516996,87543465,16674727,62114654,49574080,3259069")
 
 
 	
